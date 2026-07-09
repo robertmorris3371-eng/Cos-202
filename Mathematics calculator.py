@@ -1,67 +1,52 @@
 # COS202 Assignment
-# Personal Pocket CGPA Calculator
+# Mathematical Calculator
 
-print("===== PERSONAL POCKET CGPA CALCULATOR =====")
+while True:
+    print("\n===== MATHEMATICAL CALCULATOR =====")
+    print("1. Addition (+)")
+    print("2. Subtraction (-)")
+    print("3. Multiplication (*)")
+    print("4. Division (/)")
+    print("5. Modulus (%)")
+    print("6. Power (^)")
+    print("7. Clear")
+    print("8. OFF")
 
-courses = int(input("Enter number of courses: "))
+    choice = input("Select an option (1-8): ")
 
-total_points = 0
-total_units = 0
+    if choice == "8":
+        print("Calculator Closed.")
+        break
 
-for i in range(courses):
-    print("\nCourse", i + 1)
+    elif choice == "7":
+        print("Calculator Cleared.")
+        continue
 
-    unit = int(input("Course Unit: "))
-    score = int(input("Course Score: "))
+    elif choice in ["1", "2", "3", "4", "5", "6"]:
 
-    if score >= 70:
-        gp = 5
-        grade = "A"
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
 
-    elif score >= 60:
-        gp = 4
-        grade = "B"
+        if choice == "1":
+            print("Answer =", num1 + num2)
 
-    elif score >= 50:
-        gp = 3
-        grade = "C"
+        elif choice == "2":
+            print("Answer =", num1 - num2)
 
-    elif score >= 45:
-        gp = 2
-        grade = "D"
+        elif choice == "3":
+            print("Answer =", num1 * num2)
 
-    elif score >= 40:
-        gp = 1
-        grade = "E"
+        elif choice == "4":
+            if num2 == 0:
+                print("Cannot divide by zero.")
+            else:
+                print("Answer =", num1 / num2)
+
+        elif choice == "5":
+            print("Answer =", num1 % num2)
+
+        elif choice == "6":
+            print("Answer =", num1 ** num2)
 
     else:
-        gp = 0
-        grade = "F"
-
-    print("Grade:", grade)
-    print("Grade Point:", gp)
-
-    total_points += gp * unit
-    total_units += unit
-
-cgpa = total_points / total_units
-
-print("\n===== RESULT =====")
-print("Total Units:", total_units)
-print("Total Grade Points:", total_points)
-print("CGPA =", round(cgpa, 2))
-
-if cgpa >= 4.50:
-    print("Class: First Class")
-
-elif cgpa >= 3.50:
-    print("Class: Second Class Upper")
-
-elif cgpa >= 2.40:
-    print("Class: Second Class Lower")
-
-elif cgpa >= 1.50:
-    print("Class: Third Class")
-
-else:
-    print("Class: Pass")
+        print("Invalid Option.")
